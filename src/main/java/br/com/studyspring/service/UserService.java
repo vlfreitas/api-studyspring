@@ -1,9 +1,9 @@
 package br.com.studyspring.service;
 
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import br.com.studyspring.model.User;
 
-@Service
-@Transactional
-public class UserService {
+public interface UserService {
+    void save(User user);
+
+    User findByUserName(String username);
 }
