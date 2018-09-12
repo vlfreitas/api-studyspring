@@ -1,28 +1,37 @@
 package br.com.studyspring.model;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
 
-    private Integer id;
-    private String nome;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-    public User(Integer id, String nome) {
-        this.id = id;
-        this.nome = nome;
+    private String name;
+
+    public User(){}
+
+    public User(String name) {
+        this.name = name;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 }
