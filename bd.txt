@@ -1,0 +1,23 @@
+create database studyspringboot;
+
+use studyspringboot;
+
+CREATE TABLE `users` (
+	id int(11) NOT NULL AUTO_INCREMENT,
+	name varchar(50) DEFAULT NULL,
+	lastName varchar(50) DEFAULT NULL,
+	email varchar(50) DEFAULT NULL,
+	cellphone varchar(13) DEFAULT NULL,
+	PRIMARY KEY (id)
+);
+
+
+create table reminders(
+	id int NOT NULL AUTO_INCREMENT,
+    	active boolean DEFAULT NULL,
+    	hour time DEFAULT NULL,
+    	days varchar(200) DEFAULT NULL,
+    	user_id int,
+	PRIMARY KEY (id),
+	FOREIGN KEY (user_id) REFERENCES users(id)
+);
