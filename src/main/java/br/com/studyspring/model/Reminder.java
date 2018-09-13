@@ -16,7 +16,7 @@ public class Reminder {
     private String days;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinTable(name = "reminder_user", joinColumns = @JoinColumn(name = "reminder_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
     public Reminder(){}
