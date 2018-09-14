@@ -10,12 +10,15 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     private String name;
     private String lastName;
     private String email;
     private String cellphone;
+
+    @OneToMany(mappedBy = "user")
+    private List<Reminder> reminders;
 
     public User(){}
 
@@ -26,11 +29,11 @@ public class User {
         this.cellphone = cellphone;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -64,5 +67,13 @@ public class User {
 
     public void setCellphone(String cellphone) {
         this.cellphone = cellphone;
+    }
+
+    public List<Reminder> getReminders() {
+        return reminders;
+    }
+
+    public void setReminders(List<Reminder> reminders) {
+        this.reminders = reminders;
     }
 }
